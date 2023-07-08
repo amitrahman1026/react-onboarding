@@ -11,7 +11,7 @@ const BaseFormPage: React.FC<FormPageProps> = ({ children, currentPage, totalPag
   const progress = Math.floor((currentPage / totalPages) * 100);
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col items-center'>
       <div className='flex grow-0 w-min'><LinearProgress variant="determinate" value={progress} /></div>
       <div className='flex'>{children}</div>
     </div>
