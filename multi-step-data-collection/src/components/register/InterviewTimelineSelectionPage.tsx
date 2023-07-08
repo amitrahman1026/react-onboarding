@@ -12,7 +12,7 @@ const InterviewTimelineSelectionPage: React.FC = () => {
   };
 
   return (
-    <BaseFormPage currentPage={4} totalPages={4}>
+    <BaseFormPage currentPage={2} totalPages={4}>
       <h2>Interview Timeline Selection</h2>
       <Box
         sx={{

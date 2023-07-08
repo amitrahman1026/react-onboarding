@@ -8,14 +8,12 @@ export interface FormPageProps {
 }
 
 const BaseFormPage: React.FC<FormPageProps> = ({ children, currentPage, totalPages }) => {
-  const progress = Math.floor(((currentPage-1) / totalPages) * 100);
+  const progress = Math.floor((currentPage / totalPages) * 100);
 
   return (
-    <div className="flex flex-col h-screen">
-      <header>
-        <LinearProgress variant="determinate" value={progress} />
-      </header>
-      <main className="flex-grow">{children}</main>
+    <div className='flex flex-col'>
+      <div className='flex grow-0 w-min'><LinearProgress variant="determinate" value={progress} /></div>
+      <div className='flex'>{children}</div>
     </div>
   );
 };

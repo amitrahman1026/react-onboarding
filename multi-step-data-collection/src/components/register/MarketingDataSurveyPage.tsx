@@ -28,7 +28,7 @@ const MarketingDataSurveyPage: React.FC = () => {
   };
 
   return (
-    <BaseFormPage currentPage={3} totalPages={4}>
+    <BaseFormPage currentPage={0} totalPages={4}>
       <h2>How did you hear about us?</h2>
       <Box
         sx={{

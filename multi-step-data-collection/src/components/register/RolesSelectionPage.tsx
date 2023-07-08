@@ -22,6 +22,7 @@ const RolesSelectionPage: React.FC = () => {
   };
 
   return (
+    <div className='flex'>
     <BaseFormPage currentPage={1} totalPages={4}>
       <h2>Select your roles:</h2>
       <Box
@@ -58,6 +59,7 @@ const RolesSelectionPage: React.FC = () => {
         ))}
       </Box>
     </BaseFormPage>
+    </div>
   );
 };
 

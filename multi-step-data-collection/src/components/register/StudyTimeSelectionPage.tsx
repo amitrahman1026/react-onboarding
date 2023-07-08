@@ -15,7 +15,7 @@ const StudyTimeSelectionPage: React.FC = () => {
   };
 
   return (
-    <BaseFormPage currentPage={2} totalPages={4}>
+    <BaseFormPage currentPage={3} totalPages={4}>
       <h2>Select your study time:</h2>
       <div>
         <h4>Hours per week:</h4>

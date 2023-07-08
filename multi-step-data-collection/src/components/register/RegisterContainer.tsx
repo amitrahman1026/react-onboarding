@@ -26,23 +26,6 @@ const RegisterContainer: React.FC = () => {
     switch (currentPage) {
       case 0:
         return (
-          <RolesSelectionPage
-            handleRoleSelection={(role: string) => updateFormData({ roles: role })}
-          />
-        );
-      case 1:
-        return (
-          <StudyTimeSelectionPage
-            handleHoursPerWeekChange={(newValue: number) =>
-              updateFormData({ studyTime: { ...formData.studyTime, hoursPerWeek: newValue } })
-            }
-            handleWeeksToCommitChange={(newValue: number) =>
-              updateFormData({ studyTime: { ...formData.studyTime, weeksToCommit: newValue } })
-            }
-          />
-        );
-      case 2:
-        return (
           <MarketingDataSurveyPage
             handlePlatformSelection={(platform: string) => {
               const selectedPlatforms = formData.marketingPlatforms;
@@ -58,19 +41,37 @@ const RegisterContainer: React.FC = () => {
             }}
           />
         );
-      case 3:
+      case 1:
+        return (
+          <RolesSelectionPage
+            handleRoleSelection={(role: string) => updateFormData({ roles: role })}
+          />
+        );
+      case 2:
         return <InterviewTimelineSelectionPage />;
+      case 3:
+        return (
+          <StudyTimeSelectionPage
+            handleHoursPerWeekChange={(newValue: number) =>
+              updateFormData({ studyTime: { ...formData.studyTime, hoursPerWeek: newValue } })
+            }
+            handleWeeksToCommitChange={(newValue: number) =>
+              updateFormData({ studyTime: { ...formData.studyTime, weeksToCommit: newValue } })
+            }
+          />
+        );
       default:
         return null;
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-between h-screen">
-      <div className="flex flex-col items-center w-4/5 my-8">
+    <div className='flex flex-col' >
+      <div className='flex'>
         {renderPage()}
       </div>
-      <div className="flex justify-between w-4/5 p-4">
+      <div className='flex'>
+        <footer className='flex' style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem' }}>
         {currentPage > 0 && (
           <Button variant="outlined" onClick={handlePreviousPage}>
             Previous
@@ -85,6 +86,7 @@ const RegisterContainer: React.FC = () => {
             Submit
           </Button>
         )}
+        </footer>
       </div>
     </div>
   );
