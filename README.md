@@ -37,20 +37,20 @@ To run the user data collection registration form locally, follow these steps:
 
 1. Clone the project repository:
 
-git clone <repository-url>
+`git clone git@github.com:amitrahman1026/react-onboarding.git`
 
 2. Install the project dependencies by navigating to the project directory and running the following command:
 
-cd <project-directory>
-npm install
+`cd multi-step-data-collection`
+`npm install`
 
 3. Start the development server:
 
-npm run dev
+`npm run dev`
 
 This command will start the development server using Vite, which provides hot module replacement and fast refresh for an optimized development experience.
 
-4. Open your browser and visit http://localhost:3000 to view the registration form.
+4. Open your browser and visit http://localhost:5173 to view the registration form.
 
 ## Customizing and Extending
 
@@ -66,7 +66,7 @@ To deploy the user data collection registration form to a production environment
 
 1. Build the production-ready bundle by running the following command:
 
-npm run build
+`npm run build`
 
 This command will generate an optimized and minified bundle of your application in the dist/ directory.
 
@@ -76,6 +76,3 @@ This command will generate an optimized and minified bundle of your application 
 
 4. Start your server or hosting platform to make the registration form accessible to users.
 
-## Conclusion
-
-This developer's guide provides an overview of the user data collection registration form's folder structure, code components, and the development environment setup. Use this guide as a reference to understand the project structure and customize the form to suit your specific requirements.
