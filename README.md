@@ -27,6 +27,7 @@ To run the registration form locally, follow these steps:
 1. Install the dependencies by running the following command:
 
 ```
+cd multi-step-data-collection
 npm i
 npm run dev
 ```
