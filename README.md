@@ -3,7 +3,7 @@
 This guide provides an overview of the folder structure and code for the user data collection registration form built with React and Material-UI components.
 
 ## Folder Structure
-
+```
 src/
 ├── components/
 │   ├── register/
@@ -17,7 +17,7 @@ src/
 │   └── App.tsx
 ├── index.tsx
 └── styles.css
-
+```
 - components/: Contains all the registration form components.
 - register/: Contains the individual pages/components of the registration form.
 - BaseFormPage.tsx: Provides a base form page layout with a progress bar, previous and next buttons, and a placeholder for the actual form content.
