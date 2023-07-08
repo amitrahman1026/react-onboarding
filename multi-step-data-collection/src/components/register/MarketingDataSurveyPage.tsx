@@ -7,11 +7,6 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Box from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
-import { useForm } from './formData';
-
-interface MarketingDataSurveyPageProps {
-  handlePlatformSelection: (platform: string) => void;
-}
 
 const marketingPlatforms = [
   { name: 'Instagram', icon: <InstagramIcon /> },
@@ -21,19 +16,15 @@ const marketingPlatforms = [
   // Add more marketing platforms as needed
 ];
 
-const MarketingDataSurveyPage: React.FC<MarketingDataSurveyPageProps> = ({ handlePlatformSelection }) => {
+const MarketingDataSurveyPage: React.FC = () => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
-  const [formData, updateFormData] = useForm(); // Retrieve form data and update function from the useForm hook
 
-  const handleSelection = (platform: string) => {
+  const handlePlatformSelection = (platform: string) => {
     if (selectedPlatforms.includes(platform)) {
       setSelectedPlatforms(selectedPlatforms.filter((item) => item !== platform));
-      updateFormData({ marketingPlatforms: selectedPlatforms.filter((item) => item !== platform) }); // Update the form data
     } else {
       setSelectedPlatforms([...selectedPlatforms, platform]);
-      updateFormData({ marketingPlatforms: [...selectedPlatforms, platform] }); // Update the form data
     }
-    handlePlatformSelection(platform); // Call the prop function here
   };
 
   return (
@@ -65,7 +56,7 @@ const MarketingDataSurveyPage: React.FC<MarketingDataSurveyPageProps> = ({ handl
                 backgroundColor: '#dcdcdc',
               },
             }}
-            onClick={() => handleSelection(platform.name)}
+            onClick={() => handlePlatformSelection(platform.name)}
           >
             {platform.icon}
             <span>{platform.name}</span>

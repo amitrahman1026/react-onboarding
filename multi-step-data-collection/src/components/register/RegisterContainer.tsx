@@ -9,8 +9,7 @@ import Button from '@mui/material/Button';
 const RegisterContainer: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [formData, updateFormData] = useForm();
-  const [formValid, setFormValid] = useState<boolean>(false);
-
+  
   const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
