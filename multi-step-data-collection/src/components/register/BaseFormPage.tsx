@@ -1,28 +1,21 @@
 import React, { ReactNode } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
-import Button from '@mui/material/Button';
 
 export interface FormPageProps {
-  onNext: () => void; // Function to handle the next action
-  onPrevious: () => void; // Function to handle the previous action
-  children: ReactNode; // Children elements of the form page
+  children: ReactNode;
+  currentPage: number;
+  totalPages: number;
 }
 
-const BaseFormPage: React.FC<FormPageProps> = ({ onNext, onPrevious, children }) => {
+const BaseFormPage: React.FC<FormPageProps> = ({ children, currentPage, totalPages }) => {
+  const progress = Math.floor(((currentPage-1) / totalPages) * 100);
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '50vh' }}>
+    <div className="flex flex-col h-screen">
       <header>
-        <LinearProgress />
+        <LinearProgress variant="determinate" value={progress} />
       </header>
-      <main style={{ flexGrow: 1 }}>{children}</main>
-      <footer style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem' }}>
-        <Button variant="outlined" onClick={onPrevious}>
-          Previous
-        </Button>
-        <Button variant="contained" onClick={onNext}>
-          Next
-        </Button>
-      </footer>
+      <main className="flex-grow">{children}</main>
     </div>
   );
 };

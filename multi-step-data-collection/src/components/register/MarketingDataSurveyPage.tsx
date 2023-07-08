@@ -28,7 +28,7 @@ const MarketingDataSurveyPage: React.FC = () => {
   };
 
   return (
-    <BaseFormPage onNext={() => {}} onPrevious={() => {}}>
+    <BaseFormPage currentPage={3} totalPages={4}>
       <h2>How did you hear about us?</h2>
       <Box
         sx={{
@@ -50,7 +50,7 @@ const MarketingDataSurveyPage: React.FC = () => {
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              backgroundColor: blueGrey[500],
+              backgroundColor: selectedPlatforms.includes(platform.name) ? '#dcdcdc' : blueGrey[500],
               transition: 'background-color 0.3s',
               '&:hover': {
                 backgroundColor: '#dcdcdc',
