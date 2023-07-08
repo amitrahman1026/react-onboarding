@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import BaseFormPage from './BaseFormPage';
 import Slider from '@mui/material/Slider';
-import { FormData } from './formData';
+import { FormData } from '../utils/formData';
 
 interface StudyTimeSelectionPageProps {
   formData: FormData;

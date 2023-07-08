@@ -1,11 +1,11 @@
+// RolesSelectionPage.tsx
 import React, { useState } from 'react';
 import BaseFormPage from './BaseFormPage';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import { blueGrey } from '@mui/material/colors';
-import { useForm } from './formData';
-import { FormData } from './formData';
+import { FormData } from '../utils/formData';
 
 const roles = [
   { name: 'Internship', icon: <EngineeringIcon /> },

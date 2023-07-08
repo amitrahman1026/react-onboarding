@@ -1,10 +1,10 @@
+// InterviewTimelineSelectionPage.tsx
 import React from 'react';
 import BaseFormPage from './BaseFormPage';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
-import { useForm } from './formData';
-import { FormData } from './formData';
+import { FormData } from '../utils/formData';
 
 interface InterviewTimelineSelectionPageProps {
   formData: FormData;

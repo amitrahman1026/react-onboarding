@@ -4,7 +4,7 @@ import RolesSelectionPage from './RolesSelectionPage';
 import StudyTimeSelectionPage from './StudyTimeSelectionPage';
 import MarketingDataSurveyPage from './MarketingDataSurveyPage';
 import InterviewTimelineSelectionPage from './InterviewTimelineSelectionPage';
-import { useForm } from './formData';
+import { useForm } from '../utils/formData';
 import Button from '@mui/material/Button';
 
 const RegisterContainer: React.FC = () => {

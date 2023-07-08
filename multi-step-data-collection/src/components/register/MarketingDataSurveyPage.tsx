@@ -1,3 +1,4 @@
+// MarketingDaraSurveyPage.tsx
 import React, { useState } from 'react';
 import BaseFormPage from './BaseFormPage';
 import Button from '@mui/material/Button';
@@ -7,8 +8,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Box from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
-import { useForm } from './formData';
-import { FormData } from './formData';
+import { FormData } from '../utils/formData';
 
 const marketingPlatforms = [
   { name: 'Instagram', icon: <InstagramIcon /> },

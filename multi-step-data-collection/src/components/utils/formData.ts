@@ -1,3 +1,4 @@
+// formData.ts
 import { useState } from 'react';
 
 export interface FormData {
