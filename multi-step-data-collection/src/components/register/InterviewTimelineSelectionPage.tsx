@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BaseFormPage from './BaseFormPage';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
+import { useForm } from './formData';
 
 const InterviewTimelineSelectionPage: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState('');
+  const [, updateFormData] = useForm(); // Retrieve the updateFormData function from the useForm hook
+  const [selectedOption, setSelectedOption] = React.useState('');
 
   const handleOptionSelection = (option: string) => {
     setSelectedOption(option);
+    updateFormData({ interviewTimeline: option }); // Update the form data
   };
 
   return (

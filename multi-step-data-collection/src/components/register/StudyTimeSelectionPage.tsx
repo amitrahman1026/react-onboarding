@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import BaseFormPage from './BaseFormPage';
 import Slider from '@mui/material/Slider';
+import { useForm } from './formData';
 
 const StudyTimeSelectionPage: React.FC = () => {
+  const [, updateFormData] = useForm(); // Retrieve the updateFormData function from the useForm hook
   const [hoursPerWeek, setHoursPerWeek] = useState(0);
   const [weeksToCommit, setWeeksToCommit] = useState(0);
 
   const handleHoursPerWeekChange = (event: any, newValue: number | number[]) => {
-    setHoursPerWeek(newValue as number);
+    const updatedHoursPerWeek = newValue as number;
+    setHoursPerWeek(updatedHoursPerWeek);
+    updateFormData({ studyTime: { hoursPerWeek: updatedHoursPerWeek, weeksToCommit } }); // Include weeksToCommit property
   };
 
   const handleWeeksToCommitChange = (event: any, newValue: number | number[]) => {
-    setWeeksToCommit(newValue as number);
+    const updatedWeeksToCommit = newValue as number;
+    setWeeksToCommit(updatedWeeksToCommit);
+    updateFormData({ studyTime: { hoursPerWeek, weeksToCommit: updatedWeeksToCommit } }); // Include hoursPerWeek property
   };
 
   return (
