@@ -1,17 +1,30 @@
+// StudyTimeSelectionPage.tsx
 import React, { useState } from 'react';
 import BaseFormPage from './BaseFormPage';
 import Slider from '@mui/material/Slider';
+import { FormData } from '../utils/formData';
 
-const StudyTimeSelectionPage: React.FC = () => {
+interface StudyTimeSelectionPageProps {
+  formData: FormData;
+  updateFormData: (data: Partial<FormData>) => void;
+}
+
+const StudyTimeSelectionPage: React.FC<StudyTimeSelectionPageProps> = ({ formData, updateFormData }) => {
   const [hoursPerWeek, setHoursPerWeek] = useState(0);
   const [weeksToCommit, setWeeksToCommit] = useState(0);
 
   const handleHoursPerWeekChange = (event: any, newValue: number | number[]) => {
-    setHoursPerWeek(newValue as number);
+    console.log('Hours per week changed');
+    const updatedHoursPerWeek = newValue as number;
+    setHoursPerWeek(updatedHoursPerWeek);
+    updateFormData({ studyTime: { hoursPerWeek: updatedHoursPerWeek, weeksToCommit } });
   };
 
   const handleWeeksToCommitChange = (event: any, newValue: number | number[]) => {
-    setWeeksToCommit(newValue as number);
+    console.log('Weeks to commit changed');
+    const updatedWeeksToCommit = newValue as number;
+    setWeeksToCommit(updatedWeeksToCommit);
+    updateFormData({ studyTime: { hoursPerWeek, weeksToCommit: updatedWeeksToCommit } });
   };
 
   return (

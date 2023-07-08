@@ -1,3 +1,4 @@
+// MarketingDaraSurveyPage.tsx
 import React, { useState } from 'react';
 import BaseFormPage from './BaseFormPage';
 import Button from '@mui/material/Button';
@@ -7,6 +8,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Box from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
+import { FormData } from '../utils/formData';
 
 const marketingPlatforms = [
   { name: 'Instagram', icon: <InstagramIcon /> },
@@ -16,7 +18,12 @@ const marketingPlatforms = [
   // Add more marketing platforms as needed
 ];
 
-const MarketingDataSurveyPage: React.FC = () => {
+interface MarketingDataSurveyPageProps {
+  formData: FormData;
+  updateFormData: (data: Partial<FormData>) => void;
+}
+
+const MarketingDataSurveyPage: React.FC<MarketingDataSurveyPageProps> = ({ formData, updateFormData }) => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
 
   const handlePlatformSelection = (platform: string) => {
@@ -25,6 +32,8 @@ const MarketingDataSurveyPage: React.FC = () => {
     } else {
       setSelectedPlatforms([...selectedPlatforms, platform]);
     }
+
+    updateFormData({ marketingPlatforms: selectedPlatforms }); // Update the form data
   };
 
   return (

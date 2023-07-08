@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+// InterviewTimelineSelectionPage.tsx
+import React from 'react';
 import BaseFormPage from './BaseFormPage';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
+import { FormData } from '../utils/formData';
 
-const InterviewTimelineSelectionPage: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState('');
+interface InterviewTimelineSelectionPageProps {
+  formData: FormData;
+  updateFormData: (data: Partial<FormData>) => void;
+}
+
+const InterviewTimelineSelectionPage: React.FC<InterviewTimelineSelectionPageProps> = ({
+  formData,
+  updateFormData,
+}) => {
+  const [selectedOption, setSelectedOption] = React.useState('');
 
   const handleOptionSelection = (option: string) => {
     setSelectedOption(option);
+    updateFormData({ interviewTimeline: option }); // Update the form data
   };
 
   return (
