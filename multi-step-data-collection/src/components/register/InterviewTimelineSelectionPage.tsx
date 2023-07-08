@@ -4,9 +4,17 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
 import { useForm } from './formData';
+import { FormData } from './formData';
 
-const InterviewTimelineSelectionPage: React.FC = () => {
-  const [, updateFormData] = useForm(); // Retrieve the updateFormData function from the useForm hook
+interface InterviewTimelineSelectionPageProps {
+  formData: FormData;
+  updateFormData: (data: Partial<FormData>) => void;
+}
+
+const InterviewTimelineSelectionPage: React.FC<InterviewTimelineSelectionPageProps> = ({
+  formData,
+  updateFormData,
+}) => {
   const [selectedOption, setSelectedOption] = React.useState('');
 
   const handleOptionSelection = (option: string) => {

@@ -8,6 +8,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import Box from '@mui/material/Box';
 import { blueGrey } from '@mui/material/colors';
 import { useForm } from './formData';
+import { FormData } from './formData';
 
 const marketingPlatforms = [
   { name: 'Instagram', icon: <InstagramIcon /> },
@@ -17,8 +18,12 @@ const marketingPlatforms = [
   // Add more marketing platforms as needed
 ];
 
-const MarketingDataSurveyPage: React.FC = () => {
-  const [, updateFormData] = useForm(); // Retrieve the updateFormData function from the useForm hook
+interface MarketingDataSurveyPageProps {
+  formData: FormData;
+  updateFormData: (data: Partial<FormData>) => void;
+}
+
+const MarketingDataSurveyPage: React.FC<MarketingDataSurveyPageProps> = ({ formData, updateFormData }) => {
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
 
   const handlePlatformSelection = (platform: string) => {

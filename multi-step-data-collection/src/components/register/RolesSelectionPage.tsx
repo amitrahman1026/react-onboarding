@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import { blueGrey } from '@mui/material/colors';
 import { useForm } from './formData';
+import { FormData } from './formData';
 
 const roles = [
   { name: 'Internship', icon: <EngineeringIcon /> },
@@ -15,10 +16,14 @@ const roles = [
   { name: 'Machine Learning Engineer', icon: <EngineeringIcon /> },
 ];
 
-const RolesSelectionPage: React.FC = () => {
-  const [selectedRole, setSelectedRole] = useState('');
-  const [, updateFormData] = useForm(); // Retrieve the updateFormData function from the useForm hook
+interface RolesSelectionPageProps {
+  formData: FormData;
+  updateFormData: (data: Partial<FormData>) => void;
+}
 
+const RolesSelectionPage: React.FC<RolesSelectionPageProps> = ({ formData, updateFormData }) => {
+  const [selectedRole, setSelectedRole] = useState('');
+  
   const handleRoleSelection = (role: string) => {
     setSelectedRole(role);
     updateFormData({ roles: role }); // Update the form data

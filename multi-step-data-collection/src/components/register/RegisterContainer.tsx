@@ -1,3 +1,4 @@
+// RegisterContainer.tsx
 import React, { useState } from 'react';
 import RolesSelectionPage from './RolesSelectionPage';
 import StudyTimeSelectionPage from './StudyTimeSelectionPage';
@@ -16,6 +17,7 @@ const RegisterContainer: React.FC = () => {
   };
 
   const handlePreviousPage = () => {
+    console.log('Previous page');
     setCurrentPage((prevPage) => prevPage - 1);
   };
 
@@ -25,24 +27,32 @@ const RegisterContainer: React.FC = () => {
     // Handle form submission here
   };
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 0:
-        return <MarketingDataSurveyPage />;
-      case 1:
-        return <RolesSelectionPage />;
-      case 2:
-        return <InterviewTimelineSelectionPage />;
-      case 3:
-        return <StudyTimeSelectionPage />;
-      default:
-        return null;
-    }
-  };
-
   return (
     <div className='flex flex-col'>
-      <div className='flex'>{renderPage()}</div>
+      <div className='flex'>
+        {currentPage === 0 && (
+          <MarketingDataSurveyPage
+            formData={formData}
+            updateFormData={updateFormData}
+          />
+        )}
+        {currentPage === 1 && (
+          <RolesSelectionPage
+            formData={formData}
+            updateFormData={updateFormData}
+          />
+        )}
+        {currentPage === 2 && <InterviewTimelineSelectionPage 
+          formData={formData}
+          updateFormData={updateFormData}
+        />}
+        {currentPage === 3 && (
+          <StudyTimeSelectionPage
+            formData={formData}
+            updateFormData={updateFormData}
+          />
+        )}
+      </div>
       <div className='flex'>
         <footer className='flex' style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem' }}>
           {currentPage > 0 && (
